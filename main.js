@@ -1,7 +1,5 @@
 const scene = new THREE.Scene();
-const camera = new THREE.PerspectiveCamera(
-  75, window.innerWidth / window.innerHeight, 0.1, 1000
-);
+const camera = new THREE.PerspectiveCamera(75, window.innerWidth/window.innerHeight, 0.1, 1000);
 const renderer = new THREE.WebGLRenderer();
 renderer.setSize(window.innerWidth, window.innerHeight);
 document.getElementById("universe").appendChild(renderer.domElement);
@@ -18,7 +16,7 @@ const starMaterial = new THREE.PointsMaterial({ color: 0xffffff, size: 1 });
 const stars = new THREE.Points(starsGeometry, starMaterial);
 scene.add(stars);
 
-// 星球
+// 星球貼圖
 const loader = new THREE.TextureLoader();
 const planetTexture = loader.load('https://threejs.org/examples/textures/earth_atmos_2048.jpg');
 const planetGeometry = new THREE.SphereGeometry(5, 64, 64);
@@ -26,5 +24,16 @@ const planetMaterial = new THREE.MeshStandardMaterial({ map: planetTexture });
 const planet = new THREE.Mesh(planetGeometry, planetMaterial);
 scene.add(planet);
 
-// 光源
-const light = new THREE.Po
+// 燈光
+const light = new THREE.PointLight(0xffffff, 1.5);
+light.position.set(10, 10, 10);
+scene.add(light);
+
+camera.position.z = 20;
+
+function animate() {
+  requestAnimationFrame(animate);
+  planet.rotation.y += 0.002;
+  renderer.render(scene, camera);
+}
+animate();
