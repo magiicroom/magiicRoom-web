@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>Eric's Universe</title>
-  <link rel="stylesheet" href="style.css">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <div id="universe"></div>
@@ -13,8 +13,9 @@
     <p>Welcome to my galaxy. I'm a systems engineer and AI enthusiast 🚀</p>
   </div>
 
-  <!-- ✅ 在 body 結尾處載入 JS -->
+  <!-- CDN Three.js loaded first -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r148/three.min.js"></script>
-  <script src="main.js?v=1.0"></script>
+  <!-- Local JS with cache busting -->
+  <script src="main.js?v=2.0"></script>
 </body>
 </html>
